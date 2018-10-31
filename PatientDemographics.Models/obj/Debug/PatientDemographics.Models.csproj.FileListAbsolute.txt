@@ -1,0 +1,12 @@
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PatientDemoGraphics\PatientDemographics.Models\bin\Debug\PatientDemographics.Models.dll
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PatientDemoGraphics\PatientDemographics.Models\bin\Debug\PatientDemographics.Models.pdb
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PatientDemoGraphics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.csprojAssemblyReference.cache
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PatientDemoGraphics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.csproj.CoreCompileInputs.cache
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PatientDemoGraphics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.dll
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PatientDemoGraphics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.pdb
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\bin\Debug\PatientDemographics.Models.dll
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\bin\Debug\PatientDemographics.Models.pdb
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.csprojAssemblyReference.cache
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.csproj.CoreCompileInputs.cache
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.dll
+C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.pdb

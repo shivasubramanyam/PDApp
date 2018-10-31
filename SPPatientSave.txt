@@ -1,0 +1,81 @@
+USE [Patient]
+GO
+/****** Object:  StoredProcedure [dbo].[SavePatientDemographics]    Script Date: 10/31/2018 3:38:11 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[SavePatientDemographics]
+(
+	@ForeName		    VARCHAR(50),
+	@SurName			VARCHAR(50),
+	@Gender				VARCHAR(10),
+	@DOB				DATE,
+	@HomeNO				VARCHAR(10),
+	@WorkNO				VARCHAR(10),
+	@MobileNO			VARCHAR(10),
+	@createdBy			BIGINT,
+	@createdDateTime	DATETIME,
+	@Status				VARCHAR(10)
+)
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+	DECLARE @PatientID BIGINT
+	
+	INSERT INTO dbo.PatientDemographics (FirstName ,SurName, Gender, DOB, CreatedBy, CreatedDateTime, Status)
+	VALUES (@ForeName, @SurName, @Gender, @DOB, @createdBy, @createdDateTime, @Status)
+
+	SET @PatientID = SCOPE_IDENTITY()
+
+	IF(@PatientID > 0)
+	BEGIN
+		--Inserting Home No
+		IF(@HomeNO IS NOT NULL)
+		BEGIN
+			INSERT INTO dbo.ContactNumber(PatientID, ContactNumberType, Number, CreatedBy, CreatedDateTime, Status)
+			SELECT @PatientID,
+				   ContactNoTypeID,
+				   @HomeNO,
+				   @createdBy, 
+				   @createdDateTime, 
+				   @Status
+			FROM dbo.ContactNumberTypes 
+			WHERE ContactTypeName = @HomeNO
+		END
+
+		--inserting Work No
+		IF(@HomeNO IS NOT NULL)
+		BEGIN
+			INSERT INTO dbo.ContactNumber(PatientID, ContactNumberType, Number, CreatedBy, CreatedDateTime, Status)
+			SELECT @PatientID,
+				   ContactNoTypeID,
+				   @WorkNO,
+				   @createdBy, 
+				   @createdDateTime, 
+				   @Status
+			FROM dbo.ContactNumberTypes 
+			WHERE ContactTypeName = @WorkNO
+		END
+
+		--inserting mobile No
+		IF(@HomeNO IS NOT NULL)
+		BEGIN
+			INSERT INTO dbo.ContactNumber(PatientID, ContactNumberType, Number, CreatedBy, CreatedDateTime, Status)
+			SELECT @PatientID,
+				   ContactNoTypeID,
+				   @MobileNO,
+				   @createdBy, 
+				   @createdDateTime, 
+				   @Status
+			FROM dbo.ContactNumberTypes 
+			WHERE ContactTypeName = @MobileNO
+		END
+		
+	END
+	
+	SET NOCOUNT OFF;
+END
+
