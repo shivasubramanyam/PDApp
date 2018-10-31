@@ -11,9 +11,9 @@ namespace PatientDemographics.Models
         public int patientId { get; set; }
         public string foreName { get; set; }
         public string surName { get; set; }
-        public DateTime DOB { get; set; }
+        public string DOB { get; set; }
         public string gender { get; set; }
-        public ICollection<PatientData> contactNumbers { get; set; }
+        public ContactNumbers contactNumbers { get; set; }
         //public string patientDetails { get; set; }
         public int createdBy { get; set; }
         public DateTime createdDateTime { get; set; }

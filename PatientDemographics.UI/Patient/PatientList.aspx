@@ -13,11 +13,11 @@
         //On document ready fetch the patient data
         $(document).ready(function () {
             $.ajax({
-                url: "http://localhost:59455/api/PatientDemograhic",
+                url: "http://localhost:59455/api/PatientDemograhic/GetAllPatients",
                 type: "GET",
                 success: function (response) {
                     //Process the xml data and bind it to the UI
-                    ProcessData(response.documentElement.childNodes[0].data);
+                    ProcessData(response);
                 },
                 error: function (err) {
                     alert("Failed to fetch the patient list! Please try again.");

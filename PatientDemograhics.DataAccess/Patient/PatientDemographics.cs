@@ -52,17 +52,18 @@ namespace PatientDemograhics.DataAccess.Patient
             {
                 using (SqlCommand sqlCommand = new SqlCommand("SavePatientDemographics", connection))
                 {
-                    sqlCommand.Parameters.AddWithValue("@ForeName",patientData.foreName);
-                    sqlCommand.Parameters.AddWithValue("@SurName", patientData.surName);
+                    sqlCommand.Parameters.AddWithValue("@Forename", patientData.foreName);
+                    sqlCommand.Parameters.AddWithValue("@Surname", patientData.surName);
                     sqlCommand.Parameters.AddWithValue("@Gender", patientData.gender);
-                    sqlCommand.Parameters.AddWithValue("@DOB", patientData.DOB);
-                    sqlCommand.Parameters.AddWithValue("@HomeNo", "");
-                    sqlCommand.Parameters.AddWithValue("@WorkNo", "");
-                    sqlCommand.Parameters.AddWithValue("@MobileNo", "");
+                    sqlCommand.Parameters.AddWithValue("@DOB", DateTime.ParseExact(patientData.DOB, "dd/MM/YYY", null));
+                    sqlCommand.Parameters.AddWithValue("@Home", patientData.contactNumbers.homeNumber);
+                    sqlCommand.Parameters.AddWithValue("@Work", patientData.contactNumbers.workNumber);
+                    sqlCommand.Parameters.AddWithValue("@Mobile", patientData.contactNumbers.mobileNumber);
                     sqlCommand.Parameters.AddWithValue("@Status", "Active");
                     sqlCommand.Parameters.AddWithValue("@CreatedBy", 0);
                     sqlCommand.Parameters.AddWithValue("@CreatedDateTime", DateTime.Now);
                     connection.Open();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.ExecuteNonQuery();
                     connection.Close();
                     patientAdded = true;

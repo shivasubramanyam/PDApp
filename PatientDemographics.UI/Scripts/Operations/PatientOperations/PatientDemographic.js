@@ -15,18 +15,17 @@ function SavePatientDemographic() {
     var homeNo = $("#txtHomeNo").val();
     var workNo = $("#txtWorkNo").val();
     var gender = $("input[name='Gender']:checked").val() === "rbMale" ? "Male" : "Female";
-
+    //dob = dob.replace(new RegExp("/", "gm"), "-");
     var patientData = {
         foreName: foreName,
         surName: surName,
         gender: gender,
         dob: dob,
-        "contactNumbers": {
-            home: homeNo,
-            work: workNo,
-            mobile: mobileNo
-        },
-        status: 'Active'
+        contactNumbers: {
+            homeNumber: homeNo,
+            workNumber: workNo,
+            mobileNumber: mobileNo
+        }
     };
 
     ////Building patient data in the xml form
@@ -45,14 +44,17 @@ function SavePatientDemographic() {
 
     //Ajax call to post the data
     $.ajax({
-        url: "http://localhost:59455/api/PatientDemographics",
+        url: "http://localhost:59455/api/PatientDemograhic/AddPatientDemographic",
         type: "Post",
         dataType: "html",
         contentType: "application/json; charset=UTF-8",
         data: JSON.stringify(patientData),
         success: function (response) {
             //Showing the alert message to the user on successfully storing the data
-            alert("Patient demographic saved successfully!");
+            if (response === true)
+                alert("Patient demographic saved successfully!");
+            else
+                alert("OOPS! Something went wrong please try again.");
         },
         error: function (err) {
             //Showing the alert message to the user on failure of save operation

@@ -18,6 +18,7 @@
 <body>
     <div class="container body-content">
         <form id="patientregistration" runat="server" method="post">
+            <asp:Button ID="btnPatientList" runat="server" CssClass="btn btn-warning btn-sm" Text="Go To Patient List" PostBackUrl="~/Patient/PatientList.aspx" />
             <div class="form-horizontal" style="margin-top: 100px">
                 <h3 class="page-header">Patient Registration</h3>
                 <div class="form-group">

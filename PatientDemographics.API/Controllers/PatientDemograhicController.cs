@@ -26,18 +26,28 @@ namespace PatientDemographics.API.Controllers
 
         // GET: api/PatientDemographics
         [HttpGet]
-        public string Get()
+        public string GetAllPatients()
         {
             return _patientDemographics.GetPatientDemographicsList(GetSqlConnection());
         }
 
         // POST: api/PatientDemographics
-        public void Post([FromBody]PatientData patientData)
+        [HttpPost]
+        public bool AddPatientDemographic([FromBody]PatientData patientData)
         {
-            patientData.createdBy = 0;
-            patientData.createdDateTime = DateTime.Now;
-            patientData.status = "Active";
-            _patientDemographics.SavePatientDemographics(patientData, GetSqlConnection());
+            try
+            {
+                patientData.createdBy = 0;
+                patientData.createdDateTime = DateTime.Now;
+                patientData.status = "Active";
+                _patientDemographics.SavePatientDemographics(patientData, GetSqlConnection());
+                return true;
+            }
+            catch(Exception ex)
+            {
+
+            }
+            return false;
         }
 
         private SqlConnection GetSqlConnection()
