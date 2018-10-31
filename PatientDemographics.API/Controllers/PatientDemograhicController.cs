@@ -25,6 +25,7 @@ namespace PatientDemographics.API.Controllers
         }
 
         // GET: api/PatientDemographics
+        [HttpGet]
         public string Get()
         {
             return _patientDemographics.GetPatientDemographicsList(GetSqlConnection());

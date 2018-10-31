@@ -13,10 +13,8 @@
         //On document ready fetch the patient data
         $(document).ready(function () {
             $.ajax({
-                url: "/api/Patient/PatientDemographics",
+                url: "http://localhost:59455/api/PatientDemograhic",
                 type: "GET",
-                contentType: "application/xml",
-                dataType: "xml",
                 success: function (response) {
                     //Process the xml data and bind it to the UI
                     ProcessData(response.documentElement.childNodes[0].data);
