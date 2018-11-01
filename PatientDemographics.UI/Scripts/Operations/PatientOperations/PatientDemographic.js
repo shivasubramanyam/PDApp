@@ -25,22 +25,10 @@ function SavePatientDemographic() {
             homeNumber: homeNo,
             workNumber: workNo,
             mobileNumber: mobileNo
-        }
+        },
+        createdBy: 0, //It should be the logged person's user id
+        status: 'Active'
     };
-
-    ////Building patient data in the xml form
-    //var patientData = "=<patient forename='" + foreName + "' surname='" + surName + "' gender='" + gender + "' dob='" + dob + "'><contactdetails>";
-
-    //if (mobileNo !== '')
-    //    patientData += "<telephone type='Mobile' number= '" + mobileNo + "' />";
-
-    //if (homeNo !== '')
-    //    patientData += "<telephone type='Home' number= '" + homeNo + "' />";
-
-    //if (workNo !== '')
-    //    patientData += "<telephone type='Work' number= '" + workNo + "' />";
-
-    //patientData += "</contactdetails></patient>";
 
     //Ajax call to post the data
     $.ajax({
@@ -51,8 +39,10 @@ function SavePatientDemographic() {
         data: JSON.stringify(patientData),
         success: function (response) {
             //Showing the alert message to the user on successfully storing the data
-            if (response === true)
+            if (response === 'true') {
+                ResetForm();
                 alert("Patient demographic saved successfully!");
+            }
             else
                 alert("OOPS! Something went wrong please try again.");
         },

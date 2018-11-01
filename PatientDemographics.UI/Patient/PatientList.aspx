@@ -34,7 +34,8 @@
                 var patientDemographic = $($.parseXML(data)).find('patient').map(function (index, element) {
                     var contactNos = '';
                     var cNodes = $(element).find('telephone').map(function (ind, ele) {
-                        contactNos += $(ele).attr('type') + " - " + $(ele).attr('number') + "<br />";
+                        if ($(ele).attr('number') !== '')
+                            contactNos += $(ele).attr('type') + " - " + $(ele).attr('number') + "<br />";
                     });
                     return {
                         foreName: $(element).attr('forename'),
@@ -49,7 +50,8 @@
                 if (patientDemographic.length > 0) {
                     for (var i = 0; i < patientDemographic.length; i++) {
                         var row = "<tr><td>" + patientDemographic[i].foreName + "</td><td>" + patientDemographic[i].surName + "</td><td>"
-                            + patientDemographic[i].gender + "</td><td>" + patientDemographic[i].dob + "</td><td>" + patientDemographic[i].contactNumbers
+                            + patientDemographic[i].gender + "</td><td>" + patientDemographic[i].dob + "</td><td>"
+                            + (patientDemographic[i].contactNumbers === '' ? 'Not Available' : patientDemographic[i].contactNumbers)
                             + "</td></tr>";
 
                         $('#patientlist tbody').append(row);
@@ -64,27 +66,15 @@
 </head>
 <body>
     <form id="patientListform" runat="server">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="PatientRegistration.aspx">Patient Registration</a></li>
-                        <li><a runat="server" href="PatientList.aspx">Patient List</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container" style="margin-top: 100px">
+        <div class="container" style="margin-top: 50px">
             <div class="panel panel-primary">
-                <div class="panel-heading">Patient Demographic Details</div>
+                <div class="col-sm-4 pull-right" style="margin-top: 10px">
+                    <a runat="server" class="btn btn-warning btn-xs" href="PatientRegistration.aspx" title="click here to go to patient registration form">Patient Registration</a>
+                </div>
+                <div class="panel-heading">
+                    Demographic Details                    
+                </div>
+                <div class="clearfix"></div>
                 <div class="panel-body">
                     <table class="table table-hover" id="patientlist">
                         <thead>

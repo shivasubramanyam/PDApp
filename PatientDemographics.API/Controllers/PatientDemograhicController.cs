@@ -12,7 +12,7 @@ using System.Web.Http.Cors;
 
 namespace PatientDemographics.API.Controllers
 {
-    [EnableCors(origins:"*", headers: "*", methods:"GET,POST")]
+    [EnableCors(origins: "*", headers: "*", methods: "GET,POST")]
     public class PatientDemograhicController : ApiController
     {
         //Creating object to access dataaccess
@@ -37,13 +37,11 @@ namespace PatientDemographics.API.Controllers
         {
             try
             {
-                patientData.createdBy = 0;
                 patientData.createdDateTime = DateTime.Now;
-                patientData.status = "Active";
                 _patientDemographics.SavePatientDemographics(patientData, GetSqlConnection());
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -57,7 +55,7 @@ namespace PatientDemographics.API.Controllers
             {
                 connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PatientDB"].ConnectionString);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //log the here
             }

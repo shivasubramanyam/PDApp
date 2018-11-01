@@ -12,3 +12,7 @@ C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\obj\Deb
 C:\Users\skaruppasamy\Source\Shiva\NewRepo\PD\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.pdb
 G:\workspace\git\repo\PatientDemographics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.csprojAssemblyReference.cache
 G:\workspace\git\repo\PatientDemographics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.csproj.CoreCompileInputs.cache
+G:\workspace\git\repo\PatientDemographics\PatientDemographics.Models\bin\Debug\PatientDemographics.Models.dll
+G:\workspace\git\repo\PatientDemographics\PatientDemographics.Models\bin\Debug\PatientDemographics.Models.pdb
+G:\workspace\git\repo\PatientDemographics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.dll
+G:\workspace\git\repo\PatientDemographics\PatientDemographics.Models\obj\Debug\PatientDemographics.Models.pdb

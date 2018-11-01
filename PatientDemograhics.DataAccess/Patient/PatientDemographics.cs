@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Xml;
 using PatientDemographics.Models;
 
@@ -55,7 +56,7 @@ namespace PatientDemograhics.DataAccess.Patient
                     sqlCommand.Parameters.AddWithValue("@Forename", patientData.foreName);
                     sqlCommand.Parameters.AddWithValue("@Surname", patientData.surName);
                     sqlCommand.Parameters.AddWithValue("@Gender", patientData.gender);
-                    sqlCommand.Parameters.AddWithValue("@DOB", DateTime.ParseExact(patientData.DOB, "dd/MM/YYY", null));
+                    sqlCommand.Parameters.AddWithValue("@DOB", DateTime.Parse(patientData.DOB)); //, "dd/MM/yyyy", CultureInfo.InvariantCulture));
                     sqlCommand.Parameters.AddWithValue("@Home", patientData.contactNumbers.homeNumber);
                     sqlCommand.Parameters.AddWithValue("@Work", patientData.contactNumbers.workNumber);
                     sqlCommand.Parameters.AddWithValue("@Mobile", patientData.contactNumbers.mobileNumber);
