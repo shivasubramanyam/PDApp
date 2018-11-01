@@ -14,7 +14,6 @@ namespace PatientDemographics.Models
         public string DOB { get; set; }
         public string gender { get; set; }
         public ContactNumbers contactNumbers { get; set; }
-        //public string patientDetails { get; set; }
         public int createdBy { get; set; }
         public DateTime createdDateTime { get; set; }
         public int? lastUpdateddBy { get; set; }

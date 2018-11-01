@@ -6,7 +6,6 @@
 
 //Saves the form data
 function SavePatientDemographic() {
-    debugger;
     //Fetching values from controls
     var foreName = $("#txtFirstName").val();
     var surName = $("#txtSurname").val();
@@ -15,7 +14,7 @@ function SavePatientDemographic() {
     var homeNo = $("#txtHomeNo").val();
     var workNo = $("#txtWorkNo").val();
     var gender = $("input[name='Gender']:checked").val() === "rbMale" ? "Male" : "Female";
-    //dob = dob.replace(new RegExp("/", "gm"), "-");
+
     var patientData = {
         foreName: foreName,
         surName: surName,
@@ -40,8 +39,8 @@ function SavePatientDemographic() {
         success: function (response) {
             //Showing the alert message to the user on successfully storing the data
             if (response === 'true') {
-                ResetForm();
                 alert("Patient demographic saved successfully!");
+                reloadPage();
             }
             else
                 alert("OOPS! Something went wrong please try again.");
@@ -53,15 +52,15 @@ function SavePatientDemographic() {
     });
 }
 
+//realoads current page page
+function reloadPage() {
+    window.location.reload();
+}
+
 //Reset patient registration form to the original state
 function ResetForm() {
     if (confirm("Are you sure you want to reset the form ?")) {
-        $("#txtFirstName").val("");
-        $("#txtSurname").val("");
-        $("#txtDOB").val("");
-        $("#txtMobile").val("");
-        $("#txtHomeNo").val("");
-        $("#txtWorkNo").val("");
+        reloadPage();
     }
 }
 

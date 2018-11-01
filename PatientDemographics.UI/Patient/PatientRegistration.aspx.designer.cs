@@ -22,15 +22,6 @@ namespace PatientDemographics.UI.Patient {
         protected global::System.Web.UI.HtmlControls.HtmlForm patientregistration;
         
         /// <summary>
-        /// btnPatientList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPatientList;
-        
-        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>

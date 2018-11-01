@@ -130,6 +130,7 @@
         }
     });
 
+    //validates date
     function isDate(txtDate) {
         var currVal = txtDate;
         if (currVal === '')
@@ -157,6 +158,8 @@
         }
         return true;
     }
+
+    //validates contact number
     function isContactNo(number) {
         debugger;
         if (number === '')

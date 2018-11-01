@@ -1,12 +1,8 @@
 ﻿using PatientDemograhics.DataAccess.Patient;
 using PatientDemographics.Models;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -24,14 +20,21 @@ namespace PatientDemographics.API.Controllers
             _patientDemographics = patientDemographics;
         }
 
-        // GET: api/PatientDemographics
+        /// <summary>
+        /// Get all the patients
+        /// </summary>
+        /// <returns>xml</returns>
         [HttpGet]
         public string GetAllPatients()
         {
             return _patientDemographics.GetPatientDemographicsList(GetSqlConnection());
         }
 
-        // POST: api/PatientDemographics
+        /// <summary>
+        /// Save  patient demographics
+        /// </summary>
+        /// <param name="patientData">patientData: holds/binds patient demographics data</param>
+        /// <returns>true/false</returns>
         [HttpPost]
         public bool AddPatientDemographic([FromBody]PatientData patientData)
         {
@@ -48,6 +51,10 @@ namespace PatientDemographics.API.Controllers
             return false;
         }
 
+        /// <summary>
+        /// Fetches the connection string
+        /// </summary>
+        /// <returns>SqlConnection</returns>
         private SqlConnection GetSqlConnection()
         {
             SqlConnection connection = new SqlConnection();
