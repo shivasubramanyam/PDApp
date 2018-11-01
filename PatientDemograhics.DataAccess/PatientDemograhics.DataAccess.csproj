@@ -53,6 +53,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Database\Backup\" />
+    <Folder Include="Database\Script\PreScript\" />
+    <Folder Include="Database\StoredProcedure\" />
     <Folder Include="DBContext\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
